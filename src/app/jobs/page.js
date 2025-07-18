@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
@@ -10,6 +10,8 @@ export default function JobsPage() {
     position: "",
     jobType: "",
   });
+const [state, setState] = useState(false);
+
 
   const router = useRouter();
 
@@ -23,6 +25,8 @@ export default function JobsPage() {
   const handleBackToHomePage = () => {
     router.push("/");
   };
+
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,7 +48,9 @@ export default function JobsPage() {
     }
   };
 
-  const handleSendingDataTon8n = async () => {
+  
+
+    const handleSendingDataTon8n = async () => {
     try {
       const res = await axios.post("/api/user/n8n", data, {
         headers: {
@@ -55,13 +61,28 @@ export default function JobsPage() {
       if (res.status === 200) {
         console.log("Data sent to n8n successfully");
         alert("Data sent to n8n!");
+        setState(true)
       } else {
         console.error("Error sending data to n8n");
       }
     } catch (err) {
       console.error("n8n error:", err.message);
     }
-  };
+    }
+  
+
+useEffect(() => {
+
+if(state){
+
+
+  router.push('/data')
+}
+
+},[state])
+
+
+
 
   return (
     <div className="flex flex-col min-h-screen justify-center items-center bg-gradient-to-r from-teal-500 via-purple-100 to-slate-500 p-8">
@@ -136,6 +157,11 @@ export default function JobsPage() {
           >
             Send to n8n Webhook
           </Button>
+          <div>
+
+
+
+          </div>
         </div>
       </form>
     </div>
