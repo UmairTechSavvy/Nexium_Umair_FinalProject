@@ -10,8 +10,8 @@ export default function DataPage() {
     try {
       const res = await axios.get("/api/user/n8nget");
       console.log("Fetched from backend:", res.data);
-      
-      setData(res.data.Top5Jobs || []);
+
+      setData([res.data] || []);
       alert("Data fetched successfully!");
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -26,18 +26,17 @@ export default function DataPage() {
       </Button>
 
       <h1>DATA:</h1>
-      <ul>
-      {Array.isArray(data) ? (
-  data.map((job, index) => (
-    <ul key={index}>
-      <li>{job}</li>
-    </ul>
-  ))
-) : (
-  <p>Data is not an array: {JSON.stringify(data)}</p>
-)}
+   <ul>
+  {data.map((job, index) => (
+    <li key={index}>
+      <p>Title: {job.Title}</p>
+      <p>Company: {job.Company}</p>
+     <a href={job.Link} target="_blank" rel="noopener noreferrer">{job.Link}</a>
+      <hr />
+    </li>
+  ))}
+</ul>
 
-      </ul>
     </div>
   );
 }
