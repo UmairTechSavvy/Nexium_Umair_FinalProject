@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+/*:root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -17,10 +17,36 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}*/
+
+@keyframes lightFall {
+  0% {
+    background-position: 0 -100%;
+  }
+  100% {
+    background-position: 0 200%;
+  }
 }
 
-body {
+.light-rays {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(255, 255, 255, 0.08) 80%
+  );
+  background-size: 100% 300%;
+  animation: lightFall 6s linear infinite;
+  mix-blend-mode: screen;
+}
+
+
+
+
+
+/*body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+*/
+

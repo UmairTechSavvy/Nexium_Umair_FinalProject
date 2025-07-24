@@ -1,10 +1,15 @@
+import dbConnect from "@/dbConfig/dbConfig";
 import User from "@/model/model";
 import { NextResponse } from "next/server";
+import Bcryptjs from "bcryptjs"
+import jwt from "jsonwebtoken"; 
+
 
 export async function POST(req) {
   try {
+    await dbConnect()
     const body = await req.json();
-    const { Email, Password } = await body;
+    const { Email, Password } = body;
 
     if (!Email || !Password) {
       return NextResponse.json(
@@ -30,7 +35,7 @@ export async function POST(req) {
       Password: user.Password,
     };
 
-    const token = await Just_Me_Again_Down_Here.sign(
+    const token =  jwt.sign(
       tokenData,
       process.env.tokendata,
       { expiresIn: "1h" }

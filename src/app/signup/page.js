@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+
 export default function Signup() {
+
+ 
   const [data, setData] = useState({
     Username: "",
     Email: "",
@@ -12,7 +15,7 @@ export default function Signup() {
   });
 
   const router = useRouter();
-
+  
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const handleSettingData = (e) => {
@@ -31,13 +34,10 @@ export default function Signup() {
 
   const handleSubmittingData = async () => {
     try {
-      const res = await axios.post("/api/user/signup", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.post("/api/user/signup", data);
+      console.log(res.data);
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         alert("User created successfully");
         router.push("/login");
       } else {
@@ -62,6 +62,7 @@ export default function Signup() {
               type="text"
               name="Username"
               id="Username"
+              value={data.Username}
               placeholder="Enter your username"
               className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
               onChange={handleSettingData}
@@ -75,6 +76,7 @@ export default function Signup() {
             <input
               type="email"
               name="Email"
+              value={data.Email}
               id="Email"
               placeholder="Enter your email"
               className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
@@ -89,6 +91,7 @@ export default function Signup() {
             <input
               type="password"
               name="Password"
+              value={data.Password}
               id="Password"
               placeholder="Enter your password"
               className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
@@ -101,7 +104,7 @@ export default function Signup() {
           onClick={handleSubmittingData}
           disabled={buttonDisabled}
           type="button"
-          className={`w-full mt-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300 ${
+          className={` cursor-pointer w-full mt-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300 ${
             buttonDisabled
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-indigo-600 hover:bg-indigo-700"

@@ -3,9 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import dbConnect from "@/dbConfig/dbConfig";
 
 
 export default function LoginPage() {
+
+
+
   const [data, setData] = useState({
     Email: "",
     Password: "",
@@ -84,11 +88,11 @@ export default function LoginPage() {
         <button
           onClick={handleLoginSubmit}
           type="button"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
+          className=" cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
         >
           Submit
         </button>
-        <button onClick={handleMoveToSignup}  className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition duration-300">SignUp</button>
+        <button onClick={handleMoveToSignup}  className="cursor-pointer w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition duration-300">SignUp</button>
       </div>
     </div>
   );
