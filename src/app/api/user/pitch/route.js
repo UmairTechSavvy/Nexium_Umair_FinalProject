@@ -20,7 +20,7 @@ Unique Selling Point: ${Unique}
 Pitch:
 `;
 
-    const hfResponse = await fetch("https://api-inference.huggingface.co/models/google/flan-t5-large", {
+    const hfResponse = await fetch("https://huggingface.co/google/flan-t5-large", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.HUGGINGFACETOKEN}`,
@@ -31,6 +31,13 @@ Pitch:
         parameters: { max_new_tokens: 200 },
       }),
     });
+
+
+ if (!hfResponse.ok) {
+      const errorText = await hfResponse.text();
+      console.error("Hugging Face API Error:", errorText);
+      throw new Error(`Hugging Face API Error: ${errorText}`);
+    }
 
     const hfData = await hfResponse.json();
 
