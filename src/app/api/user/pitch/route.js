@@ -1,32 +1,29 @@
 import dbConnect from "@/dbConfig/dbConfig";
-import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Pitch from "@/model/pitch";
 
 
-const HUGGINGFACE_API_TOKEN = process.env.HUGGINGFACETOKEN 
 
 export async function POST(req) {
   try {
     const data = await req.json();
+    const { CompanyName, Idea, TargetAudience, Problem, Unique } = data;
 
-    const { CompanyName, Idea, TargetAudience, Problem, Unique,AI_Response } = data;
-
-       const prompt = `
+    const prompt = `
 Generate a complete startup pitch using the following data:
 Company Name: ${CompanyName}
 Idea: ${Idea}
 Target Audience: ${TargetAudience}
 Problem: ${Problem}
 Unique Selling Point: ${Unique}
-Pitch:${AI_Response}
+
+Pitch:
 `;
 
-    
     const hfResponse = await fetch("https://api-inference.huggingface.co/models/google/flan-t5-large", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${HUGGINGFACE_API_TOKEN}`,
+        Authorization: `Bearer ${process.env.HUGGINGFACETOKEN}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -36,7 +33,14 @@ Pitch:${AI_Response}
     });
 
     const hfData = await hfResponse.json();
-    const generatedPitch = hfData[0]?.generated_text || "No pitch generated.";
+
+    let generatedPitch = "No pitch generated.";
+    if (Array.isArray(hfData) && hfData[0]?.generated_text) {
+      generatedPitch = hfData[0].generated_text;
+    } else if (hfData.error) {
+      console.error("Hugging Face Error:", hfData.error);
+      throw new Error(hfData.error);
+    }
 
     await dbConnect();
 
@@ -46,14 +50,17 @@ Pitch:${AI_Response}
       TargetAudience,
       Problem,
       Unique,
-      AI_Response:generatedPitch
+      AI_Response: generatedPitch,
     });
 
     await newPitch.save();
-    console.log(newPitch)
 
-    return NextResponse.json({ message: "Pitch data created successfully!" ,generatedPitch},{status:200});
+    return NextResponse.json(
+      { message: "Pitch data created successfully!", generatedPitch },
+      { status: 200 }
+    );
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    console.error("Server Error:", error);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
