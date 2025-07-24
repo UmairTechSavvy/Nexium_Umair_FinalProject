@@ -20,7 +20,7 @@ Unique Selling Point: ${Unique}
 Pitch:
 `;
 
-    const hfResponse = await fetch("https://huggingface.co/google/flan-t5-large", {
+    const hfResponse = await fetch("https://api-inference.huggingface.co/models/gpt2", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.HUGGINGFACETOKEN}`,
