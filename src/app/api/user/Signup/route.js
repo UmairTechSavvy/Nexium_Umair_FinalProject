@@ -5,25 +5,11 @@ import dbConnect from "@/dbConfig/dbConfig.js";
 
 export async function POST(req) {
   try {
-    await dbConnect()
+    await dbConnect();
     const body = await req.json();
     console.log(body);
-    
-    const { Username, Password, Email } = body;
-    /*if (!body.Username || !body.Email || !body.Password) {
-      return NextResponse.json(
-        { error: "All fields are required." },
-        { status: 400 }
-      );
-    }
-   if (!/^[a-zA-Z0-9]+$/.test(body.Username)) {
-      return NextResponse.json(
-        { error: "Username can only contain letters and numbers." },
-        { status: 400 }
-      );
-    }
-*/
 
+    const { Username, Password, Email } = body;
 
     const existingUser = await User.findOne({ Email });
     if (existingUser) {
@@ -42,7 +28,7 @@ export async function POST(req) {
       Password: hashedPassword,
     });
 
-   console.log(newUser);
+    console.log(newUser);
 
     return NextResponse.json(
       { message: "User created successfully." },
