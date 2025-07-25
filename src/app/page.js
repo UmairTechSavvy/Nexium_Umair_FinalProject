@@ -80,7 +80,7 @@ export default function Home() {
             </h2>
             <p className="text-lg leading-relaxed">
               A strong elevator pitch quickly introduces who you are and what you
-              do in a clear, relatable way. It should identify your audience’s
+              do in a clear, relatable way. It should identify your {"audience’s"}
               problem, present your solution, and end with a compelling call to
               action.
             </p>
@@ -106,12 +106,12 @@ export default function Home() {
               pitches in seconds.
             </p>
             <p className="text-lg leading-relaxed">
-              Powered by smart algorithms, WriterBuddy analyzes popular pitch
+              Powered by smart algorithms, PitchWriterAI analyzes popular pitch
               styles and blends them with your unique message to generate
               impactful results.
             </p>
             <p className="text-lg leading-relaxed">
-              Say goodbye to writer’s block. With WriterBuddy, writing your
+              Say goodbye to {"writer’s"} block. With PitchWriterAI, writing your
               perfect pitch becomes fast, simple, and effective.
             </p>
           </section>
@@ -122,7 +122,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-12">How PitchWriterAI Can Help You</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Option 1 */}
+          
           <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
             <div className="p-6">
               <div className="flex items-center mb-4">
