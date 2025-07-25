@@ -66,10 +66,10 @@ export default function MainPage() {
     const blob = new Blob([aiPitch], { type: "text/plain;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "generated_pitch.txt"; // This is the name of the file
+    link.download = "generated_pitch.txt"; 
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link); // Clean up the link element after download
+    document.body.removeChild(link); 
   };
 
   return (
