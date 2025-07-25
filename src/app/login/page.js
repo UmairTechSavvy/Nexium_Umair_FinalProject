@@ -51,7 +51,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-teal-400 to-slate-800 p-4">
+    <div className="flex items-center justify-center min-h-screen bg-black p-4">
+     <header>
+      
+      <p className="absolute top-10 right-10 text-8xl font-bold text-white">Pitch<br />Writer <br />AI</p>
+
+      </header> 
       <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-8 space-y-6">
         <h2 className="text-3xl font-bold text-center text-indigo-700">Login</h2>
 
