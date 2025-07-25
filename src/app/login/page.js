@@ -54,7 +54,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-black p-4">
      <header>
       
-      <p className="absolute top-10 right-10 text-8xl font-bold text-white">Pitch<br />Writer <br />AI</p>
+      <p className="absolute top-10 right-10 text-8xl font-bold text-white hidden lg:block">Pitch<br />Writer <br />AI</p>
 
       </header> 
       <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-8 space-y-6">

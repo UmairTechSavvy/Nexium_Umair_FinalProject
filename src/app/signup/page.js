@@ -49,7 +49,8 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-teal-400 to-slate-800 p-6">
+    <div className="flex items-center justify-center min-h-screen bg-black p-6">
+      <header><p className="absolute top-10 right-10 text-8xl font-bold text-white hidden lg:block">Pitch<br />Writer <br />AI</p></header>
       <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 space-y-6">
         <h2 className="text-3xl font-bold text-center text-indigo-700">Sign Up</h2>
 
