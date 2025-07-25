@@ -75,16 +75,17 @@ export default function MainPage() {
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       <header className="bg-white flex justify-center items-center py-6 border-4 border-black font-bold text-4xl relative">
-        
-        <button
-          className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 rounded-lg shadow-lg p-2"
-          onClick={handleGettingBackToHomePage}
-        >
-          Home Page
-        </button>
-        <h1>PitchWriterAI</h1>
 
-        <div className="absolute top-4 left-4 h-12 bg-slate-500">
+       <button
+  className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 sm:block md:block lg:hidden rounded-lg shadow-lg p-2"
+  onClick={handleGettingBackToHomePage}
+>
+  Go Back
+</button>
+
+        <h1 className="absolute left-4">PitchWriterAI</h1>
+
+        <div >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"
