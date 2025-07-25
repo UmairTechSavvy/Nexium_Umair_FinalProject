@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function MainPage() {
   const [data, setData] = useState({
@@ -8,11 +9,12 @@ export default function MainPage() {
     Idea: "",
     TargetAudience: "",
     Problem: "",
-    Unique: ""
+    Unique: "",
   });
 
   const [aiPitch, setAiPitch] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleData = (e) => {
     setData({
@@ -21,11 +23,20 @@ export default function MainPage() {
     });
   };
 
+  const handleGettingBackToHomePage = () => {
+    router.push("/");
+  };
+
   const handlePitchData = async (e) => {
     e.preventDefault();
 
-  
-    if (!data.CompanyName || !data.Idea || !data.TargetAudience || !data.Problem || !data.Unique) {
+    if (
+      !data.CompanyName ||
+      !data.Idea ||
+      !data.TargetAudience ||
+      !data.Problem ||
+      !data.Unique
+    ) {
       alert("Please fill in all required fields.");
       return;
     }
@@ -37,9 +48,12 @@ export default function MainPage() {
           "Content-Type": "application/json",
         },
       });
-      console.log(res.data.generatedPitch)
+      console.log(res.data.generatedPitch);
       setAiPitch(res.data.generatedPitch);
       alert("Pitch submitted successfully!");
+
+      
+      await saveResult("generated_pitch.txt", res.data.generatedPitch);
     } catch (error) {
       console.error(error);
       alert("Failed to submit pitch.");
@@ -48,14 +62,46 @@ export default function MainPage() {
     }
   };
 
+  const downloadPitch = () => {
+    const blob = new Blob([aiPitch], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "generated_pitch.txt"; // This is the name of the file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up the link element after download
+  };
+
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
-      <header className="bg-white flex justify-center items-center py-6 border-4 border-black font-bold text-4xl">
+      <header className="bg-white flex justify-center items-center py-6 border-4 border-black font-bold text-4xl relative">
+        <button
+          className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 rounded-lg shadow-lg p-2"
+          onClick={handleGettingBackToHomePage}
+        >
+          Home Page
+        </button>
         <h1>PitchWriterAI</h1>
+
+        <div className="absolute top-4 left-4 h-12 bg-slate-500">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="w-full h-full"
+          >
+            <path
+              d="M0,0 C600,100 600,100 1200,0 L1200,120 L0,120 Z"
+              className="fill-white"
+            ></path>
+          </svg>
+        </div>
       </header>
 
       <main className="flex-grow bg-black text-white p-8 text-center border-y border-white border-4">
-        <p className="text-lg">Please fill the requirements to find the best solution.</p>
+        <p className="text-lg">
+          Please fill the requirements to find the best solution.
+        </p>
 
         <form
           onSubmit={handlePitchData}
@@ -108,11 +154,9 @@ export default function MainPage() {
             onChange={handleData}
           />
 
-      
-
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition"
+            className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition"
             disabled={loading}
           >
             {loading ? "Generating..." : "Generate My Pitch"}
@@ -121,7 +165,16 @@ export default function MainPage() {
 
         {aiPitch && (
           <div className="mt-12 bg-white text-black p-6 rounded-xl shadow-md max-w-3xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-4 text-center">Your AI-Generated Pitch</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-center">
+              Your AI-Generated Pitch
+            </h3>
+            <a
+              href="#"
+              onClick={downloadPitch}
+              className="mt-4 text-green-600 hover:text-green-700 font-bold"
+            >
+              Download Pitch
+            </a>
             <p className="whitespace-pre-wrap text-left">{aiPitch}</p>
           </div>
         )}
