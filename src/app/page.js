@@ -98,7 +98,7 @@ export default function Home() {
               Free AI Elevator Pitch Generator Tool
             </h2>
             <p className="text-lg leading-relaxed">
-              A great elevator pitch doesn’t just introduce you—it grabs attention
+              A great elevator pitch {"doesn’t"} just introduce you—it grabs attention
               and opens the door to real conversations. It's a quick, powerful
               summary of who you are, what you do, and why someone should work
               with you.
