@@ -79,7 +79,7 @@ export default function Home() {
             <p className="text-lg leading-relaxed">
               A strong elevator pitch quickly introduces who you are and what
               you do in a clear, relatable way. It should identify your
-              audience problem, present your solution, and end with a compelling call to action.
+              audience&apos;s problem, present your solution, and end with a compelling call to action.
             </p>
           </section>
         </section>
@@ -90,7 +90,7 @@ export default function Home() {
               Free AI Elevator Pitch Generator Tool
             </h2>
             <p className="text-lg leading-relaxed">
-              A great elevator pitch doesn not just introduce you—it grabs attention and opens the door to real conversations. It's a quick, powerful summary of who you are, what you do, and why someone should work with you.
+              A great elevator pitch does not just introduce you—it grabs attention and opens the door to real conversations. It is a quick, powerful summary of who you are, what you do, and why someone should work with you.
             </p>
             <p className="text-lg leading-relaxed">
               Not sure where to begin? Try our AI-powered Elevator Pitch Generator—designed to help you create confident, conversion-focused pitches in seconds.
@@ -101,7 +101,7 @@ export default function Home() {
               styles and blends them with your unique message to generate impactful results.
             </p>
             <p className="text-lg leading-relaxed">
-              With PitchWriterAI, writing
+              Say goodbye to writer&apos;s block. With PitchWriterAI, writing
               your perfect pitch becomes fast, simple, and effective.
             </p>
           </section>
@@ -165,7 +165,7 @@ export default function Home() {
                 </h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Whether you're a startup or an entrepreneur, PitchWriterAI is
+                Whether you are a startup or an entrepreneur, PitchWriterAI is
                 designed to help you communicate your ideas clearly and persuasively.
               </p>
               <ul className="space-y-2 mb-4">
