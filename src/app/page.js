@@ -28,7 +28,6 @@ export default function Home() {
       <header className="gradient-bg text-white">
         <div className="container mx-auto px-6 py-16 text-center">
           <Button
-            
             variant={"destructive"}
             className="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-150 absolute top-6 right-6"
             onClick={handleLogOutFunctionality}
@@ -39,7 +38,8 @@ export default function Home() {
             PitchWriterAI - Generate Winning Pitches with AI
           </h1>
           <p className="text-xl text-black md:text-2xl opacity-90">
-            Craft perfect pitches and proposals effortlessly with our AI-powered tool
+            Craft perfect pitches and proposals effortlessly with our AI-powered
+            tool
           </p>
           <div className="mt-8">
             <div className="inline-flex rounded-md shadow">
@@ -68,71 +68,61 @@ export default function Home() {
             ></path>
           </svg>
         </div>
-
-
-
       </header>
 
       <main className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto w-full flex-grow z-10">
         <section className="lg:w-1/2 flex flex-col space-y-12">
-         
-
           <section className="space-y-4 mt-12">
             <h2 className="italic text-3xl font-bold underline underline-offset-4 decoration-teal-700">
               Tips for a Good Elevator Pitch
             </h2>
             <p className="text-lg leading-relaxed">
-              A strong elevator pitch quickly introduces who you are and what you
-              do in a clear, relatable way. It should identify your {"audience’s"}
-              problem, present your solution, and end with a compelling call to
-              action.
+              A strong elevator pitch quickly introduces who you are and what
+              you do in a clear, relatable way. It should identify your{" "}
+              {"audience&apos;s"} problem, present your solution, and end with a compelling call to action.
             </p>
           </section>
         </section>
 
         <div className="lg:w-1/2 space-y-16 mt-12">
-       
-
           <section className="space-y-6">
             <h2 className="italic text-3xl font-bold underline underline-offset-4 decoration-teal-700">
               Free AI Elevator Pitch Generator Tool
             </h2>
             <p className="text-lg leading-relaxed">
-              A great elevator pitch {"doesn’t"} just introduce you—it grabs attention
-              and opens the door to real conversations. It's a quick, powerful
-              summary of who you are, what you do, and why someone should work
-              with you.
+              A great elevator pitch {"doesn&apos;t"} just introduce you—it grabs attention and opens the door to real conversations. It's a quick, powerful summary of who you are, what you do, and why someone should work with you.
             </p>
             <p className="text-lg leading-relaxed">
-              Not sure where to begin? Try our AI-powered Elevator Pitch
-              Generator—designed to help you create confident, conversion-focused
-              pitches in seconds.
+              Not sure where to begin? Try our AI-powered Elevator Pitch Generator—designed to help you create confident, conversion-focused pitches in seconds.
             </p>
+
             <p className="text-lg leading-relaxed">
               Powered by smart algorithms, PitchWriterAI analyzes popular pitch
-              styles and blends them with your unique message to generate
-              impactful results.
+              styles and blends them with your unique message to generate impactful results.
             </p>
             <p className="text-lg leading-relaxed">
-              Say goodbye to {"writer’s"} block. With PitchWriterAI, writing your
-              perfect pitch becomes fast, simple, and effective.
+              Say goodbye to {"writer&apos;s"} block. With PitchWriterAI, writing
+              your perfect pitch becomes fast, simple, and effective.
             </p>
           </section>
         </div>
       </main>
 
       <section id="options" className="mb-20 mt-12">
-        <h2 className="text-3xl font-bold text-center mb-12">How PitchWriterAI Can Help You</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">
+          How PitchWriterAI Can Help You
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
           <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
             <div className="p-6">
               <div className="flex items-center mb-4">
                 <div className="bg-indigo-100 p-3 rounded-full">
                   <i className="fas fa-pen text-indigo-600 text-xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold ml-3">Generate Pitches in Minutes</h3>
+                <h3 className="text-xl font-semibold ml-3">
+                  Generate Pitches in Minutes
+                </h3>
               </div>
               <p className="text-gray-600 mb-4">
                 Create pitches and proposals with just a few inputs. Our AI tool helps you craft the perfect pitch every time.
@@ -152,7 +142,11 @@ export default function Home() {
                 </li>
               </ul>
               <div className="mt-6">
-                <a href="#" onClick={handleMoveToMainPage} className="text-indigo-600 font-medium inline-flex items-center">
+                <a
+                  href="#"
+                  onClick={handleMoveToMainPage}
+                  className="text-indigo-600 font-medium inline-flex items-center"
+                >
                   Try PitchWriterAI
                   <i className="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -160,17 +154,19 @@ export default function Home() {
             </div>
           </div>
 
-      
           <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
             <div className="p-6">
               <div className="flex items-center mb-4">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <i className="fas fa-users text-blue-600 text-xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold ml-3">Perfect for Startups and Entrepreneurs</h3>
+                <h3 className="text-xl font-semibold ml-3">
+                  Perfect for Startups and Entrepreneurs
+                </h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Whether you're a startup or an entrepreneur, PitchWriterAI is designed to help you communicate your ideas clearly and persuasively.
+                Whether you're a startup or an entrepreneur, PitchWriterAI is
+                designed to help you communicate your ideas clearly and persuasively.
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start">
@@ -179,28 +175,31 @@ export default function Home() {
                 </li>
                 <li className="flex items-start">
                   <i className="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                  <span>Generate ideas for funding, partnerships, and more</span>
+                  <span>
+                    Generate ideas for funding, partnerships, and more
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <i className="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
                   <span>Customize for any business context</span>
                 </li>
               </ul>
-            
             </div>
           </div>
 
-       
           <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
             <div className="p-6">
               <div className="flex items-center mb-4">
                 <div className="bg-purple-100 p-3 rounded-full">
                   <i className="fas fa-bolt text-purple-600 text-xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold ml-3">Boost Your Conversion Rates</h3>
+                <h3 className="text-xl font-semibold ml-3">
+                  Boost Your Conversion Rates
+                </h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Use AI to refine your pitch and improve your chances of success, whether for investors, clients, or partners.
+                Use AI to refine your pitch and improve your chances of success,
+                whether for investors, clients, or partners.
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start">
@@ -217,7 +216,11 @@ export default function Home() {
                 </li>
               </ul>
               <div className="mt-6">
-                <a href="#" onClick={handleMoveToMainPage} className="text-purple-600 font-medium inline-flex items-center">
+                <a
+                  href="#"
+                  onClick={handleMoveToMainPage}
+                  className="text-purple-600 font-medium inline-flex items-center"
+                >
                   Try it out now
                   <i className="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -231,34 +234,106 @@ export default function Home() {
         <div className="container mx-auto px-6 py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-8 md:mb-0">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">PitchWriterAI</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                PitchWriterAI
+              </h3>
               <p className="text-gray-600 max-w-xs">
-                Helping entrepreneurs and startups create winning pitches using AI.
+                Helping entrepreneurs and startups create winning pitches using
+                AI.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
               <div>
-                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Resources</h3>
+                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">
+                  Resources
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Documentation</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Tutorials</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">API Status</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Documentation
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Tutorials
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      API Status
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Company</h3>
+                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">
+                  Company
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">About</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Blog</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Careers</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Blog
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Careers
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Legal</h3>
+                <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">
+                  Legal
+                </h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Privacy</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Terms</a></li>
-                  <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition duration-150">Cookie Policy</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Privacy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Terms
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-indigo-600 transition duration-150"
+                    >
+                      Cookie Policy
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -268,13 +343,22 @@ export default function Home() {
               © 2023 PitchWriterAI. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-indigo-600 transition duration-150">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-indigo-600 transition duration-150"
+              >
                 <i className="fab fa-twitter text-xl"></i>
               </a>
-              <a href="#" className="text-gray-500 hover:text-indigo-600 transition duration-150">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-indigo-600 transition duration-150"
+              >
                 <i className="fab fa-github text-xl"></i>
               </a>
-              <a href="#" className="text-gray-500 hover:text-indigo-600 transition duration-150">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-indigo-600 transition duration-150"
+              >
                 <i className="fab fa-discord text-xl"></i>
               </a>
             </div>
