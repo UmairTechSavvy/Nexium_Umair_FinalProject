@@ -78,7 +78,7 @@ export default function Home() {
             </h2>
             <p className="text-lg leading-relaxed">
               A strong elevator pitch quickly introduces who you are and what
-              you do in a clear, relatable way. It should identify your{" "}
+              you do in a clear, relatable way. It should identify your
               {"audience&apos;s"} problem, present your solution, and end with a compelling call to action.
             </p>
           </section>
