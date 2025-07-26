@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function MainPage() {
   const [data, setData] = useState({
@@ -52,7 +53,6 @@ export default function MainPage() {
       setAiPitch(res.data.generatedPitch);
       alert("Pitch submitted successfully!");
 
-      
       await saveResult("generated_pitch.txt", res.data.generatedPitch);
     } catch (error) {
       console.error(error);
@@ -66,26 +66,26 @@ export default function MainPage() {
     const blob = new Blob([aiPitch], { type: "text/plain;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "generated_pitch.txt"; 
+    link.download = "generated_pitch.txt";
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link); 
+    document.body.removeChild(link);
   };
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       <header className="bg-white flex justify-center items-center py-6 border-4 border-black font-bold text-4xl relative">
-
-       <button
-  className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 sm:block md:block lg:hidden rounded-lg shadow-lg p-2"
-  onClick={handleGettingBackToHomePage}
->
-  Go Back
-</button>
+        <Button
+          variant={"destructive"}
+          className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 sm:block md:block lg:hidden rounded-lg shadow-lg p-2"
+          onClick={handleGettingBackToHomePage}
+        >
+          Go Back
+        </Button>
 
         <h1 className="absolute left-4">PitchWriterAI</h1>
 
-        <div >
+        <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"

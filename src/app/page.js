@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const router = useRouter();
@@ -26,12 +27,14 @@ export default function Home() {
     <div className="font-sans antialiased text-gray-800">
       <header className="gradient-bg text-white">
         <div className="container mx-auto px-6 py-16 text-center">
-          <button
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-150 absolute top-6 right-6"
+          <Button
+            
+            variant={"destructive"}
+            className="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-150 absolute top-6 right-6"
             onClick={handleLogOutFunctionality}
           >
             Log Out
-          </button>
+          </Button>
           <h1 className="text-4xl text-black md:text-5xl font-bold mb-4">
             PitchWriterAI - Generate Winning Pitches with AI
           </h1>
