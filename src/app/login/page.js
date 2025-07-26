@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import dbConnect from "@/dbConfig/dbConfig";
 
 export default function LoginPage() {
   const [data, setData] = useState({
@@ -27,13 +26,17 @@ export default function LoginPage() {
       });
 
       if (res?.status === 200) {
+        
         router.push("/");
       } else {
-        alert("Login failed.");
+       
+        router.push("/signup");
       }
     } catch (error) {
       console.error("Error during login:", error);
       alert("Login failed. Please try again.");
+      // On failure, redirect to the signup page
+      router.push("/signup");
     }
   };
 
@@ -95,7 +98,7 @@ export default function LoginPage() {
         <button
           onClick={handleLoginSubmit}
           type="button"
-          className=" cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
+          className="cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
         >
           Submit
         </button>
