@@ -5,11 +5,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import dbConnect from "@/dbConfig/dbConfig";
 
-
 export default function LoginPage() {
-
-
-
   const [data, setData] = useState({
     Email: "",
     Password: "",
@@ -38,31 +34,34 @@ export default function LoginPage() {
     } catch (error) {
       console.error("Error during login:", error);
       alert("Login failed. Please try again.");
-
     }
   };
 
   const handleMoveToSignup = () => {
-
-    router.push('/signup')
-
-
-
-  }
+    router.push("/signup");
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-black p-4">
-     <header>
-      
-      <p className="absolute top-10 right-10 text-8xl font-bold text-white hidden lg:block">Pitch<br />Writer <br />AI</p>
-
-      </header> 
+      <header>
+        <p className="absolute top-10 right-10 text-8xl font-bold text-white hidden lg:block">
+          Pitch
+          <br />
+          Writer <br />
+          AI
+        </p>
+      </header>
       <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-8 space-y-6">
-        <h2 className="text-3xl font-bold text-center text-indigo-700">Login</h2>
+        <h2 className="text-3xl font-bold text-center text-indigo-700">
+          Login
+        </h2>
 
         <div className="space-y-4">
           <div>
-            <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="Email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
@@ -76,7 +75,10 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label htmlFor="Password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="Password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input
@@ -97,7 +99,12 @@ export default function LoginPage() {
         >
           Submit
         </button>
-        <button onClick={handleMoveToSignup}  className="cursor-pointer w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition duration-300">SignUp</button>
+        <button
+          onClick={handleMoveToSignup}
+          className="cursor-pointer w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition duration-300"
+        >
+          SignUp
+        </button>
       </div>
     </div>
   );

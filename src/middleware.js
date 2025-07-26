@@ -11,7 +11,12 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/", request.nextUrl));
   }
 
+
   if (!publicPath && !token) {
+   
+    if (path === "/login") {
+      return NextResponse.redirect(new URL("/signup", request.nextUrl));
+    }
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
 }
