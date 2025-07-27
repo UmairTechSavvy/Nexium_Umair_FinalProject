@@ -9,6 +9,7 @@ export default function LoginPage() {
     Email: "",
     Password: "",
   });
+  const [submitting,setSubmitting] = useState(false)
 
   const router = useRouter();
 
@@ -28,6 +29,7 @@ export default function LoginPage() {
       if (res?.status === 200) {
         
         router.push("/");
+        setSubmitting(true)
       } else {
        
         router.push("/signup");
@@ -35,7 +37,7 @@ export default function LoginPage() {
     } catch (error) {
       console.error("Error during login:", error);
       alert("Login failed. Please try again.");
-      // On failure, redirect to the signup page
+     
       router.push("/signup");
     }
   };
@@ -100,7 +102,7 @@ export default function LoginPage() {
           type="button"
           className="cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
         >
-          Submit
+          {submitting ? "Submitting...":"Submit"}
         </button>
         <button
           onClick={handleMoveToSignup}
