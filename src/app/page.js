@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <div className="font-sans antialiased text-gray-800">
+    <div className="p-2 font-sans antialiased text-gray-800">
       <header className="gradient-bg text-white">
         <div className="container mx-auto px-6 py-16 text-center">
           <Button

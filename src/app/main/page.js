@@ -77,13 +77,13 @@ export default function MainPage() {
       <header className="bg-white flex justify-center items-center py-6 border-4 border-black font-bold text-4xl relative">
         <Button
           variant={"destructive"}
-          className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 sm:block md:block lg:rounded-lg text-2xl shadow-lg px-2"
+          className="cursor-pointer absolute right-4 text-2xl bg-red-600 hover:bg-red-700 sm:absolute top-6 py-2"
           onClick={handleGettingBackToHomePage}
         >
-          Home Page
+          Home
         </Button>
 
-        <h1 className="lg:absolute left-120 sm:absolute left-4">PitchWriterAI</h1>
+        <h1 className="lg:absolute left-120 sm:absolute left-4 ">PitchWriterAI</h1>
 
         <div>
           <svg
