@@ -13,6 +13,7 @@ export default function Signup() {
     Email: "",
     Password: "",
   });
+  const [submitting,setSubmitting] = useState(false)
 
   const router = useRouter();
   
@@ -33,12 +34,14 @@ export default function Signup() {
   }, [data]);
 
   const handleSubmittingData = async () => {
+    setSubmitting(true)
     try {
       const res = await axios.post("/api/user/signup", data);
       console.log(res.data);
 
       if (res.status === 201) {
         alert("User created successfully");
+        setSubmitting
         router.push("/login");
       } else {
         alert("Something went wrong");
@@ -111,7 +114,7 @@ export default function Signup() {
               : "bg-indigo-600 hover:bg-indigo-700"
           }`}
         >
-          Submit
+          {submitting ? "Submitting..." : "Submit"}
         </button>
       </div>
     </div>

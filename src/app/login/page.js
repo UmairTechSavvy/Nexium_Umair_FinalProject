@@ -19,6 +19,7 @@ export default function LoginPage() {
   };
 
   const handleLoginSubmit = async () => {
+     setSubmitting(true)
     try {
       const res = await axios.post("/api/user/login", data, {
         headers: {
@@ -29,7 +30,7 @@ export default function LoginPage() {
       if (res?.status === 200) {
         
         router.push("/");
-        setSubmitting(true)
+       
       } else {
        
         router.push("/signup");
