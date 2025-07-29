@@ -5,14 +5,21 @@ import dbConnect from "@/dbConfig/dbConfig.js";
 
 export async function POST(req) {
   try {
-    await dbConnect();
-    const body = await req.json();
+    // Manually set CORS headers
+    const res = NextResponse.next();
+    res.headers.set("Access-Control-Allow-Origin", "*");  // Allow all origins (change this in production)
+    res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-    console.log("Received data:", body); 
+    // Connect to the database
+    await dbConnect();
+    
+    const body = await req.json();
+    console.log("Received data:", body); // Logging received data for debugging
 
     const { Username, Password, Email } = body;
 
-   
+    // Validate required fields
     if (!Username || !Password || !Email) {
       console.log("Missing required fields");
       return NextResponse.json(
@@ -21,7 +28,7 @@ export async function POST(req) {
       );
     }
 
-    
+    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(Email)) {
       console.log("Invalid email format");
@@ -31,7 +38,7 @@ export async function POST(req) {
       );
     }
 
-    
+    // Check if user already exists
     const existingUser = await User.findOne({ Email });
     if (existingUser) {
       console.log("User already exists");
@@ -41,25 +48,25 @@ export async function POST(req) {
       );
     }
 
-    
+    // Hash the password
     const salted = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(Password, salted);
 
-   
+    // Create a new user
     const newUser = await User.create({
       Username,
       Email,
       Password: hashedPassword,
     });
 
-    console.log("User created successfully:", newUser);
+    console.log("User created successfully:", newUser); // Logging successful user creation
 
     return NextResponse.json(
       { message: "User created successfully." },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error during user signup:", error);
+    console.error("Error during user signup:", error); // Enhanced error logging
     return NextResponse.json(
       { error: "An error occurred while processing your request." },
       { status: 500 }
