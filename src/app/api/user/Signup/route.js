@@ -8,11 +8,11 @@ export async function POST(req) {
     await dbConnect();
     const body = await req.json();
 
-    console.log("Received data:", body); // Log the incoming data
+    console.log("Received data:", body); 
 
     const { Username, Password, Email } = body;
 
-    // Check if any required fields are missing
+   
     if (!Username || !Password || !Email) {
       console.log("Missing required fields");
       return NextResponse.json(
@@ -21,7 +21,7 @@ export async function POST(req) {
       );
     }
 
-    // Validate Email format
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(Email)) {
       console.log("Invalid email format");
@@ -31,7 +31,7 @@ export async function POST(req) {
       );
     }
 
-    // Check if user already exists with the same email
+    
     const existingUser = await User.findOne({ Email });
     if (existingUser) {
       console.log("User already exists");
@@ -41,11 +41,11 @@ export async function POST(req) {
       );
     }
 
-    // Hash the password
+    
     const salted = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(Password, salted);
 
-    // Create the new user
+   
     const newUser = await User.create({
       Username,
       Email,
