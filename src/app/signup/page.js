@@ -41,13 +41,15 @@ export default function Signup() {
 
       if (res.status === 201) {
         alert("User created successfully");
-        setSubmitting
+     
         router.push("/login");
       } else {
         alert("Something went wrong");
+     
       }
     } catch (error) {
       console.error("Error submitting data:", error);
+     
     }
   };
 
