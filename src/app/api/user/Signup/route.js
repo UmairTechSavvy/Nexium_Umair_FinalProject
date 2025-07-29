@@ -42,7 +42,7 @@ export async function POST(req) {
   }
 }
 
-/*export async function GET() {
+export async function GET() {
   try {
     await dbConnect()
     const user = await User.findOne(); 
@@ -61,4 +61,4 @@ export async function POST(req) {
     return NextResponse.json({ error: "Failed to fetch user" }, { status: 500 });
   }
 }
-*/
+
