@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 
-export default function Signup() {
+export default function signupPage() {
 
  
   const [data, setData] = useState({
@@ -36,7 +36,7 @@ export default function Signup() {
   const handleSubmittingData = async () => {
     setSubmitting(true)
     try {
-      const res = await axios.post("/api/user/signup", data);
+      const res = await axios.post("/api/user/Signup", data);
       console.log(res.data);
 
       if (res.status === 201) {
