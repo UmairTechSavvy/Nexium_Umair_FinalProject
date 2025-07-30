@@ -28,7 +28,7 @@ export default function signupPage() {
     const isFormFilled =
       data.Username.length > 0 &&
       data.Email.length > 0 &&
-      data.Password.length > 0;
+      data.Password.length > 0
 
     setButtonDisabled(!isFormFilled);
   }, [data]);
