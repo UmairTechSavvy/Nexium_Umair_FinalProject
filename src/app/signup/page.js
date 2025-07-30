@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 
-export default function signupPage() {
+export default function SignupPage() {
 
  
   const [data, setData] = useState({
