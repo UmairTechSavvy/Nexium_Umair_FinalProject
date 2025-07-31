@@ -12,7 +12,9 @@ required: true,
 
 Email:{
 type:String,
-required: true
+required: true,
+index:true,
+unique:true
 },
 
 Password: {

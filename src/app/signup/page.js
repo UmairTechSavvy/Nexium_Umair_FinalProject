@@ -1,22 +1,18 @@
-"use client";
-
+"use client"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-
 export default function SignupPage() {
-
- 
   const [data, setData] = useState({
     Username: "",
     Email: "",
     Password: "",
   });
-  const [submitting,setSubmitting] = useState(false)
+  const [submitting, setSubmitting] = useState(false);
 
   const router = useRouter();
-  
+
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const handleSettingData = (e) => {
@@ -26,36 +22,46 @@ export default function SignupPage() {
 
   useEffect(() => {
     const isFormFilled =
-      data.Username.length > 0 &&
-      data.Email.length > 0 &&
-      data.Password.length > 0;
+      data.Username.length > 0 && data.Email.length > 0 && data.Password.length > 0;
 
     setButtonDisabled(!isFormFilled);
   }, [data]);
 
   const handleSubmittingData = async () => {
-    setSubmitting(true)
+    
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.Email);
+    if (!isValidEmail) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    setSubmitting(true);
+
     try {
       const res = await axios.post("/api/user/Signup", data);
       console.log(res.data);
 
       if (res.status === 201) {
         alert("User created successfully");
-     
         router.push("/login");
       } else {
         alert("Something went wrong");
-     
       }
     } catch (error) {
       console.error("Error submitting data:", error);
-     
+      alert("Error occurred while submitting data.");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-black p-6">
-      <header><p className="absolute top-10 right-10 text-8xl font-bold text-white hidden lg:block">Pitch<br />Writer <br />AI</p></header>
+      <header>
+        <p className="absolute top-10 right-10 text-8xl font-bold text-white hidden lg:block">
+          Pitch
+          <br />Writer
+          <br />AI
+        </p>
+      </header>
       <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 space-y-6">
         <h2 className="text-3xl font-bold text-center text-indigo-700">Sign Up</h2>
 
@@ -110,13 +116,11 @@ export default function SignupPage() {
           onClick={handleSubmittingData}
           disabled={buttonDisabled}
           type="button"
-          className={` cursor-pointer w-full mt-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300 ${
-            buttonDisabled
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-indigo-600 hover:bg-indigo-700"
+          className={`cursor-pointer w-full mt-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300 ${
+            buttonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-700"
           }`}
         >
-          {submitting ? "Submitting..." : "Submit"}
+        {submitting ? <span className="spinner-border spinner-border-sm"></span> : "Submit"}
         </button>
       </div>
     </div>

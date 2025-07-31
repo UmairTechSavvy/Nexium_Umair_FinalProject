@@ -49,7 +49,7 @@ export async function POST(req) {
     }
 
    
-    const salted = await bcryptjs.genSalt(10);
+    const salted = await bcryptjs.genSalt(4);
     const hashedPassword = await bcryptjs.hash(Password, salted);
 
     const newUser = await User.create({

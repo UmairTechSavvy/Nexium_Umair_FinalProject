@@ -103,7 +103,7 @@ export default function LoginPage() {
           type="button"
           className="cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
         >
-          {submitting ? "Submitting...":"Submit"}
+         {submitting ? <span className="spinner-border spinner-border-sm"></span> : "Submit"}
         </button>
         <button
           onClick={handleMoveToSignup}
