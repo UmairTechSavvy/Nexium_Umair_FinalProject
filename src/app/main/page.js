@@ -56,7 +56,7 @@ export default function MainPage() {
       await saveResult("generated_pitch.txt", res.data.generatedPitch);
     } catch (error) {
       console.error(error);
-      alert("Failed to submit pitch.");
+     
     } finally {
       setLoading(false);
     }
