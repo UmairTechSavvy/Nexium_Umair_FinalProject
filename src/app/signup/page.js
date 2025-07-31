@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -28,7 +28,6 @@ export default function SignupPage() {
   }, [data]);
 
   const handleSubmittingData = async () => {
-    
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.Email);
     if (!isValidEmail) {
       alert("Please enter a valid email address");
@@ -116,11 +115,28 @@ export default function SignupPage() {
           onClick={handleSubmittingData}
           disabled={buttonDisabled}
           type="button"
-          className={`cursor-pointer w-full mt-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300 ${
+          className={`cursor-pointer w-full mt-4 py-3 rounded-lg text-white font-semibold transition-colors duration-300 flex justify-center items-center ${
             buttonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-700"
           }`}
         >
-        {submitting ? <span className="spinner-border spinner-border-sm"></span> : "Submit"}
+          {submitting ? (
+            <svg
+              className="w-8 h-8 text-white animate-spin mr-3"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle className="opacity-25" cx="12" cy="12" r="10" strokeWidth="4"></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 1 1 16 0A8 8 0 0 1 4 12z"
+              ></path>
+            </svg>
+          ) : (
+            "Submit"
+          )}
         </button>
       </div>
     </div>
