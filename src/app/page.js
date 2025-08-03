@@ -16,8 +16,8 @@ export default function Home() {
   const handleLogOutFunctionality = async () => {
     try {
       const res = await axios.get("/api/user/logout");
-      console.log(res.data);
-      router.push("/login");
+      console.log(res.data)
+      router.push("/login")
     } catch (error) {
       console.error("Error during logout:", error);
     }
